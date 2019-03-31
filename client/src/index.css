@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  font-family: 'Cuprum', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.event {
+  margin: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+.date {
+  margin-top: 0;
+  color: #696969;
+}
+
+.quote {
+  padding: 10px;
+  background: #dcdcdc;
+}
+
+.modalBtn {
+  margin: 20px;
+}
+
+.form-input.btn {
+  margin: 6px 0;
+}
+
+.modal-container,
+.modal-body {
+  min-height: 450px;
+}
+
+.now {
+  color: #a9a9a9;
+  position: relative;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin: 0 auto;
+  border-top: 1px solid #a9a9a9;
+  margin-top: 20px;
+}
+
+.now:before{
+  content: attr(data-text);
+  background-color: #fff;
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  width: 100px;
+  margin-left: -110px;
+  padding: 10px;
+  top: -20px;
+}

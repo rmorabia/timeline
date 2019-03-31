@@ -1,0 +1,62 @@
+{
+    "name": "client",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "axios": "^0.18.0",
+        "moment": "^2.24.0",
+        "react": "^16.8.5",
+        "react-datetime": "^2.16.3",
+        "react-dom": "^16.8.5",
+        "react-scripts": "2.1.8"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "es6": true,
+            "node": true
+        },
+        "extends": "eslint:recommended",
+        "parserOptions": {
+            "ecmaFeatures": {
+                "jsx": true
+            },
+            "ecmaVersion": 2018,
+            "sourceType": "module"
+        },
+        "plugins": [
+            "react"
+        ],
+        "rules": {
+            "indent": [
+                "error",
+                2
+            ],
+            "linebreak-style": [
+                "error",
+                "unix"
+            ],
+            "quotes": [
+                "error",
+                "single"
+            ],
+            "semi": [
+                "error",
+                "never"
+            ]
+        }
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "proxy": "http://localhost:5000"
+}
