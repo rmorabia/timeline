@@ -3,12 +3,11 @@ import DateTime from 'react-datetime'
 import '../rdt.css'
 import moment from 'moment'
 import axios from 'axios'
-
 class NewEvent extends Component {
   state = {
-    type: false,
-    date: null,
-    text: null,
+    type: '',
+    date: '',
+    text: '',
     attended: false,
     isReminder: false,
     isAttended: false,
@@ -28,7 +27,7 @@ class NewEvent extends Component {
       const utcDate = moment(event._d).format()
       const currentDate = moment().format()
 
-      if (currentDate > utcDate) {
+      if (currentDate >= utcDate) {
         this.setState({ isAttended: true })
       } else {
         this.setState({ isAttended: false })
@@ -46,12 +45,16 @@ class NewEvent extends Component {
     }
   }
 
-  submitForm = () => {
+  submitForm = (e) => {
+    e.preventDefault()
     axios.post('/api', {
       type: this.state.type,
       date: this.state.date,
       text: this.state.text,
       attended: this.state.attended
+    })
+    .then((res) => {
+      console.log(res)
     })
     .catch( (error) => { console.log(error) })
   }
@@ -72,7 +75,7 @@ class NewEvent extends Component {
                 <form className="form-group" onSubmit={this.submitForm}>
                   <label htmlFor="modal-control" className="modal-close" ></label>
                   <label htmlFor="type" className="form-label">Type of Event</label>
-                  <select name="type" className="form-input" onChange={this.saveData} required>
+                  <select name="type" className="form-input" onChange={this.saveData}>
                     <option value="court-date">Court Date</option>
                     <option value="reminder">Reminder for Court Date</option>
                     <option value="case-appt">Case Manager Appointment</option>

@@ -1,9 +1,7 @@
 const express = require('express')
 const app = express()
 const port = process.env.port || 5000
-const data = require('./data')
-const events = data.events
-const { check, validationResult } = require('express-validator/check');
+const events = require('./data')
 
 app.use(express.json())
 
@@ -13,16 +11,7 @@ app.get('/api', (req, res) => {
   res.send(events)
 })
 
-app.post('/api', [
-  check('type').isAscii(),
-  check('date').isAscii(),
-  check('text').isAscii(),
-  check('attended').isBoolean()
-], (req, res) => {
-  const errors = validationResult(req)
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() })
-  }
+app.post('/api', (req, res) => {
   const event = {
     type: req.body.type,
     date: req.body.date,

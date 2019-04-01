@@ -10,8 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
-    "express-validator": "^5.3.1"
+    "express": "^4.16.4"
   },
   "devDependencies": {
     "eslint": "5.12.0"
