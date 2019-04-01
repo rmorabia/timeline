@@ -48,14 +48,3 @@ const events = [
 ]
 
 exports.events = events
-
-exports.postData = (req, res) => {
-  const event = {
-    type: req.body.type,
-    date: req.body.date,
-    text: req.body.text,
-    attended: req.body.attended
-  }
-  events.push(event)
-  res.send(event)
-}

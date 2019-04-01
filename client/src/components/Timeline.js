@@ -13,26 +13,38 @@ class Timeline extends Component {
 
   renderTimeline(e) {
     return e.map((event, index) => {
-      if (event.type === 'case-appt') {
-        return <CaseAppt
-                  event={event}
-                  date={this.formatDate}
-                />
-      } else if (event.type === 'client-update') {
-        return <ClientUpdate
-                  event={event}
-                  date={this.formatDate}
-                />
-      } else if (event.type === 'court-date') {
-        return <CourtDate
-                  event={event}
-                  date={this.formatDate}
-                />
-      } else if (event.type === 'reminder') {
-        return <Reminder
-                  event={event}
-                  date={this.formatDate}
-                />
+      switch(event.type) {
+        case 'case-appt':
+          return <CaseAppt
+            event={event}
+            formatDate={this.formatDate}
+            key={event.date}
+          />
+          break
+
+        case 'client-update':
+          return <ClientUpdate
+            event={event}
+            formatDate={this.formatDate}
+            key={event.date}
+          />
+          break
+
+        case 'court-date':
+          return <CourtDate
+            event={event}
+            formatDate={this.formatDate}
+            key={event.date}
+          />
+          break
+
+        case 'reminder':
+          return <Reminder
+            event={event}
+            formatDate={this.formatDate}
+            key={event.date}
+          />
+          break
       }
     })
   }
@@ -42,7 +54,7 @@ class Timeline extends Component {
     return (
       <div className="Timeline">
         {this.renderTimeline(this.props.futureEvents)}
-        <div class="now" data-text="NOW"></div>
+        <div className="now" data-text="NOW"></div>
         {this.renderTimeline(this.props.pastEvents)}
       </div>
     )

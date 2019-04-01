@@ -24,7 +24,6 @@ class NewEvent extends Component {
   }
 
   saveData = (event) => {
-    console.log('i guess')
     if (event._d) {
       const utcDate = moment(event._d).format()
       const currentDate = moment().format()
@@ -34,16 +33,15 @@ class NewEvent extends Component {
       } else {
         this.setState({ isAttended: false })
       }
+
       this.setState({ date: utcDate })
     } else {
       this.setState({ [event.target.name]: event.target.value })
-      console.log(event.target.name, event.target.type)
+
       if (event.target.name === 'type' && event.target.value === 'reminder') {
         this.setState({ isReminder: true })
-        console.log('reminder true', this.state.isReminder)
       } else if (event.target.name === 'type') {
         this.setState({ isReminder: false })
-        console.log('no u dont want this')
       }
     }
   }
@@ -55,7 +53,7 @@ class NewEvent extends Component {
       text: this.state.text,
       attended: this.state.attended
     })
-    .catch(function (error) { console.log(error) })
+    .catch( (error) => { console.log(error) })
   }
 
   render () {
