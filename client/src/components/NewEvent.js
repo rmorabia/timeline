@@ -45,8 +45,7 @@ class NewEvent extends Component {
     }
   }
 
-  submitForm = (e) => {
-    e.preventDefault()
+  submitForm = () => {
     axios.post('/api', {
       type: this.state.type,
       date: this.state.date,
