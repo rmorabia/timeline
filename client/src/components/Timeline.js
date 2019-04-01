@@ -20,7 +20,6 @@ class Timeline extends Component {
             formatDate={this.formatDate}
             key={event.date}
           />
-          break
 
         case 'client-update':
           return <ClientUpdate
@@ -28,7 +27,6 @@ class Timeline extends Component {
             formatDate={this.formatDate}
             key={event.date}
           />
-          break
 
         case 'court-date':
           return <CourtDate
@@ -36,7 +34,6 @@ class Timeline extends Component {
             formatDate={this.formatDate}
             key={event.date}
           />
-          break
 
         case 'reminder':
           return <Reminder
@@ -44,7 +41,6 @@ class Timeline extends Component {
             formatDate={this.formatDate}
             key={event.date}
           />
-          break
       }
     })
   }

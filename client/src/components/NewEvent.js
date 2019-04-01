@@ -5,9 +5,9 @@ import moment from 'moment'
 import axios from 'axios'
 class NewEvent extends Component {
   state = {
-    type: '',
-    date: '',
-    text: '',
+    type: 'court-date',
+    date: new Date(),
+    text: null,
     attended: false,
     isReminder: false,
     isAttended: false,
@@ -24,10 +24,13 @@ class NewEvent extends Component {
 
   saveData = (event) => {
     if (event._d) {
+
       const utcDate = moment(event._d).format()
       const currentDate = moment().format()
 
-      if (currentDate >= utcDate) {
+      if (this.state.type === 'reminder' | this.state.type === 'client-update') {
+        this.setState({ isAttended: false })
+      } else if (currentDate > utcDate) {
         this.setState({ isAttended: true })
       } else {
         this.setState({ isAttended: false })
@@ -52,9 +55,7 @@ class NewEvent extends Component {
       text: this.state.text,
       attended: this.state.attended
     })
-    .then((res) => {
-      console.log(res)
-    })
+    .then((res) => { console.log(res) })
     .catch( (error) => { console.log(error) })
   }
 
@@ -81,7 +82,7 @@ class NewEvent extends Component {
                     <option value="client-update">Client Data Updated</option>
                   </select>
                   <label htmlFor="date" className="form-label">Date of Event</label>
-                  <DateTime onChange={this.saveData}/>
+                  <DateTime onChange={this.saveData} required/>
                   {this.state.isReminder ?
                   <div>
                     <label htmlFor="text" className="form-label">Text for Reminder</label>

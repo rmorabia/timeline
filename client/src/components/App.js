@@ -21,8 +21,10 @@ class App extends Component {
       const currentDate = new Date()
       const eventDate = new Date(event.date)
       if (eventDate < currentDate) {
+        event.past = true
         pastEvents.push(event)
       } else {
+        event.past = false
         futureEvents.push(event)
       }
     })
