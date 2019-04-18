@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 
-import CaseAppt from './CaseAppt'
-import ClientUpdate from './ClientUpdate'
-import CourtDate from './CourtDate'
+import CallMom from './CallMom'
+import MovieUpdate from './MovieUpdate'
+import Movie from './Movie'
 import Reminder from './Reminder'
 
 class Timeline extends Component {
@@ -14,22 +14,22 @@ class Timeline extends Component {
   renderTimeline(e) {
     return e.map((event, index) => {
       switch(event.type) {
-        case 'case-appt':
-          return <CaseAppt
+        case 'call-mom':
+          return <CallMom
             event={event}
             formatDate={this.formatDate}
             key={event.date}
           />
 
-        case 'client-update':
-          return <ClientUpdate
+        case 'movie-update':
+          return <MovieUpdate
             event={event}
             formatDate={this.formatDate}
             key={event.date}
           />
 
-        case 'court-date':
-          return <CourtDate
+        case 'movie':
+          return <Movie
             event={event}
             formatDate={this.formatDate}
             key={event.date}

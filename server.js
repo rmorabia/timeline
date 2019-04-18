@@ -13,7 +13,7 @@ app.get('/api', (req, res) => {
 })
 
 app.post('/api', [
-  check('type').isIn(['case-appt', 'client-update', 'court-date', 'reminder']),
+  check('type').isIn(['call-mom', 'movie-update', 'movie', 'reminder']),
   check('date').isAscii(),
   check('attended').isBoolean()
 ], (req, res) => {

@@ -1,6 +1,6 @@
 const events = [
   {
-    type: 'court-date',
+    type: 'movie',
     date: '2019-04-08T09:00:00.000Z',
     text: null,
     attended: false
@@ -8,11 +8,11 @@ const events = [
   {
     type: 'reminder',
     date: '2019-04-07T09:00:00.000Z',
-    text: 'Hello John, reminder that you have court tomorrow at 9:00 am at 101 Washington St. Oakland.',
+    text: 'Hey Radhika, reminder that you have a movie appointment today at Friday!',
     attended: null
   },
   {
-    type: 'case-appt',
+    type: 'call-mom',
     date: '2019-02-27T09:30:00.000Z',
     text: null,
     attended: false
@@ -20,23 +20,23 @@ const events = [
   {
     type: 'reminder',
     date: '2019-04-08T12:30:00.000Z',
-    text: 'Hello John, this is to confirm that Court Date has been added to your schedule.',
+    text: 'Hello Radhika, this is to confirm that Movie Date has been added to your schedule.',
     attended: null
   },
   {
-    type: 'court-date',
+    type: 'movie',
     date: '2019-02-25T09:00:00.000Z',
     text: null,
     attended: true
   },
   {
-    type: 'client-update',
+    type: 'movie-update',
     date: '2019-01-31T03:30:00.000Z',
     text: null,
     attended: null
   },
   {
-    type: 'court-date',
+    type: 'movie',
     date: '2019-01-15T14:30:00.000Z',
     text: null,
     attended: true

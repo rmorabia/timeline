@@ -1,12 +1,12 @@
 import React from 'react'
 
-const ClientUpdate = props => {
+const MovieUpdate = props => {
   return (
     <div className="event">
-      <h2>Client Data Updated</h2>
+      <h2>Movie Data Updated</h2>
       <p className="date">{props.formatDate(props.event.date)}</p>
     </div>
   )
 }
 
-export default ClientUpdate
+export default MovieUpdate

@@ -44,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Promise Timeline App</h1>
+        <h1>Timeline App</h1>
         <NewEvent />
         {this.state.isLoading ? <h1>Loading...</h1> : null}
         {this.state.axiosError ? <h1>There was an error processing your request. Please try again.</h1> : null}

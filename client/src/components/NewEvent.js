@@ -5,7 +5,7 @@ import moment from 'moment'
 import axios from 'axios'
 class NewEvent extends Component {
   state = {
-    type: 'court-date',
+    type: 'movie',
     date: new Date(),
     text: null,
     attended: false,
@@ -28,7 +28,7 @@ class NewEvent extends Component {
       const utcDate = moment(event._d).format()
       const currentDate = moment().format()
 
-      if (this.state.type === 'reminder' | this.state.type === 'client-update') {
+      if (this.state.type === 'reminder' | this.state.type === 'movie-update') {
         this.setState({ isAttended: false })
       } else if (currentDate > utcDate) {
         this.setState({ isAttended: true })
@@ -48,7 +48,9 @@ class NewEvent extends Component {
     }
   }
 
-  submitForm = () => {
+  submitForm = (e) => {
+    //e.preventDefault()
+    console.log(this.state)
     axios.post('/api', {
       type: this.state.type,
       date: this.state.date,
@@ -76,17 +78,17 @@ class NewEvent extends Component {
                   <label htmlFor="modal-control" className="modal-close" ></label>
                   <label htmlFor="type" className="form-label">Type of Event</label>
                   <select name="type" className="form-input" onChange={this.saveData}>
-                    <option value="court-date">Court Date</option>
-                    <option value="reminder">Reminder for Court Date</option>
-                    <option value="case-appt">Case Manager Appointment</option>
-                    <option value="client-update">Client Data Updated</option>
+                    <option value="movie">Movie Date</option>
+                    <option value="reminder">Reminder for Movie Date</option>
+                    <option value="call-mom">Call Mom</option>
+                    <option value="movie-update">Movie Data Updated</option>
                   </select>
                   <label htmlFor="date" className="form-label">Date of Event</label>
                   <DateTime onChange={this.saveData} required/>
                   {this.state.isReminder ?
                   <div>
                     <label htmlFor="text" className="form-label">Text for Reminder</label>
-                    <textarea name="text" className="form-input" onBlur={this.saveData} placeholder="Hello, this is to confirm your court date..."></textarea>
+                    <textarea name="text" className="form-input" onBlur={this.saveData} placeholder="Hello, this is to confirm your movie date..."></textarea>
                   </div>
                   : null}
                   {this.state.isAttended ?
