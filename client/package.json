@@ -8,7 +8,7 @@
         "react": "^16.8.5",
         "react-datetime": "^3.0.3",
         "react-dom": "^16.8.5",
-        "react-scripts": "^3.4.3"
+        "react-scripts": "^5.0.1"
     },
     "scripts": {
         "start": "react-scripts start",
